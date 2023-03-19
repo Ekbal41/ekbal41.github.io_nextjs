@@ -16,9 +16,9 @@ const Commandp = ({ children }) => {
   const [search, setSearch] = useState("");
 
 
-  const handleOpenCommandPalette = useCallback(() => {
+  const handleOpenCommandPalette =() => {
     setOpen(!open);
-  },[]);
+  };
 
   useEffect(() => {
     document.addEventListener("keydown", (e) => {

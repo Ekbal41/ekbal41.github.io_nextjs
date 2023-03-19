@@ -34,7 +34,7 @@ function Works({ title, desc, _bg, data }) {
               //if data show data
               data &&
                 data.map((item) => (
-                  <GridItem w="100%">
+                  <GridItem w="100%" key={item.id}>
                     <Box
                       sx={{
                         transition: "all 0.2s ease-in-out",
