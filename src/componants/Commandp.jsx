@@ -18,7 +18,7 @@ const Commandp = ({ children }) => {
 
   const handleOpenCommandPalette = useCallback(() => {
     setOpen(!open);
-  });
+  },[]);
 
   useEffect(() => {
     document.addEventListener("keydown", (e) => {
