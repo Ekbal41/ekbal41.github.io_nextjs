@@ -16,19 +16,20 @@ function Works({ title, desc, _bg, data }) {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <>
-      <Box bg={_bg} color={colorMode === "light" ? "" : "gray.200"}>
-        <Container
-          maxW={{ base: "100%", md: "90%" }}
-          paddingTop={6}
-          paddingBottom={24}
-        >
-          <Box my={12}>
+      <Box
+        px={{ base: 0, md: 20 }}
+        bg={_bg}
+        color={colorMode === "light" ? "" : "gray.200"}
+      >
+        <Container maxW={"8xl"} paddingTop={6} paddingBottom={24}>
+          <Box my={12} mx={{base:6,md:0}}>
             <Heading>{title}</Heading>
             <Text fontSize={"2xl"}>{desc}</Text>
           </Box>
           <Grid
             templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(2, 1fr)" }}
             gap={6}
+            marginLeft={{base:4,md:0}}
           >
             {
               //if data show data

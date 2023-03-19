@@ -25,18 +25,20 @@ function With() {
   return (
     <>
       <Box
+        px={{ base: 0, md: 20 }}
         bg={colorMode === "light" ? "blackAlpha.100" : "#0e1013"}
         paddingBottom={24}
         color={colorMode === "light" ? "" : "gray.200"}
       >
-        <Container maxW={{ base: "100%", md: "90%" }}>
-          <Box py={12}>
+        <Container  maxW={"8xl"}>
+          <Box py={12}mx={{base:6,md:0}}>
             <Heading>This website useses</Heading>
             {/* <Text fontSize={"2xl"}></Text> */}
           </Box>
           <Grid
             templateColumns={{ base: "repeat(1 ,1fr)", md: "repeat(3 ,1fr)" }}
             gap={6}
+            marginLeft={{base:4,md:0}}
           >
             <GridItem w="100%">
               <Box

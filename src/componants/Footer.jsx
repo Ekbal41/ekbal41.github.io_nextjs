@@ -21,12 +21,13 @@ function Footer() {
   return (
     <>
       <Box
+        px={{ base: 0, md: 20 }}
         bg={colorMode === "light" ? "blackAlpha.100" : "#0e1013"}
         color={colorMode === "light" ? "" : "gray.200"}
         borderTop={colorMode === "light" ? "" : "1px"}
         borderColor={"#282a2d"}
       >
-        <Container maxW={{ base: "100%", md: "90%" }} py={12}>
+        <Container  maxW={"8xl"} py={12}>
           <Grid
             templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(3, 1fr)" }}
             gap={6}

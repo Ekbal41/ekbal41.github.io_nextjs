@@ -6,10 +6,11 @@ function Intro() {
   return (
     <>
       <Box
+         px={{ base: 6, md: 20 }}
         bg={colorMode === "light" ? "white" : "#17181b"}
         color={colorMode === "light" ? "" : "gray.200"}
       >
-        <Container maxW={"90%"}>
+        <Container maxW={"8xl"}>
           <Box py={20}>
             <Heading my={4}>Hello there, I am Asif Ekbal.</Heading>
             <Text fontSize={"2xl"} w={"70%"}>
