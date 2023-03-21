@@ -9,11 +9,12 @@ import { useColorMode } from '@chakra-ui/react'
 import With from '@/componants/With'
 import Footer from '@/componants/Footer'
 import Commandp from '@/componants/Commandp'
+import { useSession } from 'next-auth/react'
 
 
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <>
@@ -49,3 +50,5 @@ export default function Home() {
     </>
   )
 }
+
+

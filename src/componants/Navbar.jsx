@@ -23,12 +23,15 @@ import {
   Spacer,
   Link,
 } from "@chakra-ui/react";
+import { useSession } from "next-auth/react";
 import React, { useContext, useState } from "react";
 import { RiCommandFill } from "react-icons/ri";
 import { CgProfile } from "react-icons/cg";
 import { PalletCtx } from "@/context/PalletCotext";
+import { signIn, signOut } from "next-auth/react";
 
 function Navbar() {
+  const session = useSession();
   const { colorMode, toggleColorMode } = useColorMode();
   const { open, setOpen } = useContext(PalletCtx);
 
@@ -101,6 +104,40 @@ function Navbar() {
                     <MenuGroup title="Profile">
                       <MenuItem>All Works </MenuItem>
                       <MenuItem>Contact Me</MenuItem>
+                    </MenuGroup>
+                    <MenuDivider />
+                    <MenuGroup title="Admin">
+                      {session.status === "authenticated" ? (
+                        <MenuItem
+                          as={Link}
+                          _hover={{
+                            textDecoration: "none",
+                            border: "none",
+                            shadow: "none",
+                          }}
+                          type="button"
+                          onClick={() => {
+                            signOut();
+                          }}
+                        >
+                          Logout <Spacer /> <ExternalLinkIcon />
+                        </MenuItem>
+                      ) : (
+                        <MenuItem
+                          as={Link}
+                          _hover={{
+                            textDecoration: "none",
+                            border: "none",
+                            shadow: "none",
+                          }}
+                          type="button"
+                          onClick={() => {
+                            signIn();
+                          }}
+                        >
+                          Login <Spacer /> <ExternalLinkIcon />
+                        </MenuItem>
+                      )}
                     </MenuGroup>
                     <MenuDivider />
                     <MenuGroup title="Find Me On">
