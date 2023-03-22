@@ -11,7 +11,7 @@ import { useRouter } from 'next/router'
 
 
 
-export default function AdminPage() {
+export default function AdminPage({data}) {
 
     const { colorMode, toggleColorMode } = useColorMode();
     const { data: session, status } = useSession();
@@ -29,8 +29,8 @@ export default function AdminPage() {
                 >
                     <Commandp>
                         <Navbar />
-                      
-                        <Admin />
+
+                        <Admin data={data} />
 
 
                         <Footer />
@@ -46,5 +46,17 @@ export default function AdminPage() {
 
 
 
+}
+export async function getStaticProps() {
+    const res = await fetch("http://localhost:3000/api/projects?id=" + 4356786, {
+        method: "GET",
+    });
+    const data = await res.json();
+   
+    return {
+        props: {
+            data,
+        },
+    }
 }
 

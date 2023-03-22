@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Navbar from '@/componants/Navbar'
 import { signIn } from 'next-auth/react'
-import { Box, Button, Center, Container, Flex, Heading, Input, useColorMode, useToast } from '@chakra-ui/react'
+import { Box, Button, Center, Container, Flex, FormControl, FormLabel, Heading, Input, useColorMode, useToast } from '@chakra-ui/react'
 import Footer from '@/componants/Footer'
 import Commandp from '@/componants/Commandp'
 import { useState } from 'react'
@@ -27,7 +27,7 @@ export default function SingnIn() {
                     status: 'success',
                     duration: 9000,
                     isClosable: true,
-                    position:'top-right'
+                    position: 'top-right'
                 })
                 setUser({
                     username: "",
@@ -43,7 +43,7 @@ export default function SingnIn() {
                     status: 'error',
                     duration: 9000,
                     isClosable: true,
-                    position:'top-right'
+                    position: 'top-right'
                 })
             }
         })
@@ -75,48 +75,55 @@ export default function SingnIn() {
                                     w={{ base: "100%", md: "70%", lg: "40%" }}
                                     borderRadius={12}
                                     p={8}
-                                    border={"2px solid black"}
+                                    border={"1px"}
+                                    borderColor={"green.200"}
                                     my={8}
                                 >
                                     <Center>  <Heading size="md" mb={6} >
                                         Admin Login
                                     </Heading></Center>
                                     <form onSubmit={handleSubmit}>
-                                        <Input
-                                            type="text"
-                                            placeholder="Username"
-                                            value={user.username}
-                                            my={4}
-                                            variant='unstyled'
-                                            px={4}
-                                            py={3}
-                                            border={"2px solid black"}
+                                        <FormControl mb={4} isRequired>
+                                            <FormLabel>Username</FormLabel>
+                                            <Input
+                                                type="text"
+                                                placeholder="Username"
+                                                value={user.username}
+                                               
+                                                variant='filled'
+                                                px={4}
+                                                py={3}
 
-                                            onChange={(e) => {
-                                                setUser({ ...user, username: e.target.value });
-                                            }}
-                                        />
-                                        <Input
-                                            type="text"
-                                            placeholder="Password"
-                                            value={user.password}
-                                            my={4}
-                                            mb={8}
-                                            variant='unstyled'
-                                            px={4}
-                                            py={3}
-                                            border={"2px solid black"}
 
-                                            onChange={(e) => {
-                                                setUser({ ...user, password: e.target.value });
-                                            }}
-                                        />
+                                                onChange={(e) => {
+                                                    setUser({ ...user, username: e.target.value });
+                                                }}
+                                            />
+                                        </FormControl>
+                                        <FormControl mb={4} isRequired>
+                                            <FormLabel>Password</FormLabel>
+                                            <Input
+                                                type="text"
+                                                placeholder="Password"
+                                                value={user.password}
+                                                
+                                                mb={8}
+                                                variant='filled'
+                                                px={4}
+                                                py={3}
+
+
+                                                onChange={(e) => {
+                                                    setUser({ ...user, password: e.target.value });
+                                                }}
+                                            />
+                                        </FormControl>
                                         <Button
                                             variant={"solid"}
                                             w={"100%"}
-                                            colorScheme={"gray"}
+                                            colorScheme={"green"}
                                             type="submit"
-                                            color="gray"
+
                                         >
                                             Log In
                                         </Button>

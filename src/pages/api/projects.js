@@ -13,7 +13,17 @@ export default async function handler(req, res) {
   }
   if (req.method === 'GET') {
     const projects = await prisma.project.findMany()
-    res.status(200).json(projects)
+    const reversedProjects = projects.reverse()
+    
+    res.status(200).json(reversedProjects)
+  }
+  if (req.method === 'DELETE') {
+    const projectId = req.body.projectId
+    console.log(projectId)
+    const project = await prisma.project.delete({
+      where: { id:projectId },
+    })
+    res.status(200).json({ message: 'Project deleted'})
   }
 
 }
